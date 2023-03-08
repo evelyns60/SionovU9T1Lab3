@@ -7,7 +7,8 @@ public class Taxi extends Car{
     }
 
     public void pickupRiders(int numRiders, double farePerRider) {
-        
+        setPassengers(numRiders);
+        fareCollected += numRiders * farePerRider;
     }
 
     public void printTaxi() {
