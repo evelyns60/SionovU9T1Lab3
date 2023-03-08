@@ -12,6 +12,10 @@ public class Car extends Vehicle {
         return electric;
     }
 
+    public boolean isDiscountApplied() {
+        return discountApplied;
+    }
+
     public void printCar() {
         System.out.println("License Plate: " + getLicensePlate());
         System.out.println("Toll Fee: " + getTollFee());

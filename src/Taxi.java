@@ -9,6 +9,9 @@ public class Taxi extends Car{
     public void pickupRiders(int numRiders, double farePerRider) {
         setPassengers(numRiders);
         fareCollected += numRiders * farePerRider;
+        if (getPassengers() >= 4 && !isDiscountApplied()) {
+
+        }
     }
 
     public void printTaxi() {
