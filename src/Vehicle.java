@@ -1,35 +1,54 @@
-public class Vehicle {
-    private String licensePlate;
-    private double tollFee;
-    private int passengers;
+public class Vehicle
+{
+  private String licensePlate;
+  private double tollFee;
+  private int passengers;
+  
+  public Vehicle(String licensePlate, double tollFee, int passengers)
+  {
+    this.licensePlate = licensePlate;
+    this.tollFee = tollFee;
+    this.passengers = passengers;
+  }
 
-    public Vehicle(String licensePlate, double tollFee, int passengers) {
-        this.licensePlate = licensePlate;
-        this.tollFee = tollFee;
-        this.passengers = passengers;
-    }
+  public String getLicensePlate()
+  {
+    return licensePlate;
+  }
 
-    public String getLicensePlate() {
-        return licensePlate;
-    }
+  public double getTollFee()
+  {
+    return tollFee;
+  }
 
-    public double getTollFee() {
-        return tollFee;
-    }
+  public void setTollFee(double newValue)
+  {
+    tollFee = newValue;
+  }
 
-    public int getPassengers() {
-        return passengers;
-    }
+  public int getPassengers()
+  {
+    return passengers;
+  }
 
-    public void setPassengers(int num) {
-        passengers = num;
-    }
+  public void setPassengers(int newValue)
+  {
+    passengers = newValue;
+  }
 
-    public void setTollFee(double num) {
-        tollFee = num;
-    }
+  public double calculateTollPrice()
+  {
+    return tollFee * passengers;
+  }
 
-    public double calculateTollPrice() {
-        return tollFee * passengers;
-    }
+  public void printInfo() {
+    System.out.println("license Plate: " + licensePlate);
+    System.out.println("Toll Fee: " + tollFee);
+    System.out.println("Passengers: " + passengers);
+  }
+
+  public void addPassengers(int num) {
+    passengers += num;
+    System.out.println("Passengers successfully added.");
+  }
 }

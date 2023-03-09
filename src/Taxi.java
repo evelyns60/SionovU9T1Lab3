@@ -1,24 +1,34 @@
-public class Taxi extends Car{
-    private double fareCollected;
+public class Taxi extends Car {
+  private double fareCollected;
 
-    public Taxi(String licensePlate, double tollFee, int passengers, boolean isElectric, double fareCollected) {
-        super(licensePlate, tollFee, passengers, isElectric);
-        this.fareCollected = fareCollected;
+  public Taxi(String licensePlate, double tollFee, int passengers, boolean isElectric, double fareCollected) {
+    super(licensePlate, tollFee, passengers, isElectric); // super refers to the Car constructor
+    this.fareCollected = fareCollected;
+  }
+
+  public double getFareCollected() {
+    return fareCollected;
+  }
+
+  public boolean chargeAndDropOffRiders(double farePerRider) {
+    int riders = getPassengers() - 1;
+    fareCollected += riders * farePerRider;
+    return dropOffPassengers(riders);
+  }
+
+  @Override
+  public void printInfo() {
+    super.printInfo();
+    System.out.println("Fare Collected: " + fareCollected);
+  }
+
+  @Override
+  public void addPassengers(int num) {
+    int maxCapacity = 10;
+    if (num + getPassengers() > maxCapacity) {
+      System.out.println("Riders Denied. Max capacity reached.");
+    } else {
+      super.addPassengers(num);
     }
-
-    public void pickupRiders(int numRiders, double farePerRider) {
-        setPassengers(numRiders);
-        fareCollected += numRiders * farePerRider;
-        if (getPassengers() >= 4 && !isDiscountApplied()) {
-
-        }
-    }
-
-    public void printTaxi() {
-        System.out.println("License Plate: " + getLicensePlate());
-        System.out.println("Toll Fee: " + getTollFee());
-        System.out.println("Passengers: " + getPassengers());
-        System.out.println("Is Electric? " + isElectric());
-        System.out.println("Fare Collected: " + fareCollected);
-    }
+  }
 }
