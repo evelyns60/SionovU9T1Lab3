@@ -11,8 +11,5 @@ public class VehicleTests {
 
         Taxi taxi2 = new Taxi("TX1412", 13.75, 4, true, 2.0);
         taxi2.addPassengers(7);
-
-
-
     }
 }
